@@ -8,11 +8,14 @@ import { UserRegistrationService } from './user-registration.service';
 import { UsersListComponent } from './users-list/users-list.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserListServiceService } from './user-list-service.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserRegistrationService],
+  providers: [UserRegistrationService,UserListServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

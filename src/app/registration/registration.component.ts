@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
   public message:any;
 
 
+
   constructor(private service: UserRegistrationService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,10 @@ export class RegistrationComponent implements OnInit {
     let resp = this.service.doRegistration(this.user);
     resp.subscribe((data)=>this.message=data);
     // return this.service.doRegistration(this.user);
+  }
 
+  public sendEmail(){
+    let resp = this.service.sendEmail(new Map);
+    resp.subscribe((data)=>this.message=data);
   }
 }

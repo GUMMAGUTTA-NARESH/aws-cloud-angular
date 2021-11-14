@@ -1,1 +1,21 @@
-<p>users-list works!</p>
+
+
+
+<div style="text-align: left">
+    <h1>{{message}}</h1>
+</div>
+
+
+
+<div class="form-group">
+    <input class="btn btn-success" type="submit" name="submit_reg" value="getUsers" (click)="getAllUsers()">
+</div>
+<div class="form-group">
+    <label for="firstname"><span class="req">* </span> Id: </label>
+    <input class="form-control" type="number" [(ngModel)]="id" name="id" id="id" required
+        placeholder="Enter valid Id" />
+    <div id="errFirst"></div>
+</div>
+<div class="form-group">
+    <input class="btn btn-success" type="submit" name="submit_reg" value="getUser" (click)="getUserById(id)">
+</div>
