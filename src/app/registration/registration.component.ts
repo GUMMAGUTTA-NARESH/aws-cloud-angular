@@ -11,6 +11,7 @@ export class RegistrationComponent implements OnInit {
 
   user:User= new User("","","","");
   public message:any;
+  urlType: boolean = false;
 
 
 
@@ -19,8 +20,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public registerNow(){
-    let resp = this.service.doRegistration(this.user);
+  public registerNow(urlType: boolean){
+    let resp = this.service.doRegistration(this.user, urlType);
     resp.subscribe((data)=>this.message=data);
     // return this.service.doRegistration(this.user);
   }
