@@ -17,11 +17,13 @@ export class UserRegistrationService {
     }else{
       return this.http.post(this.baseUrl+"api/users",user, {responseType:'text' as 'json'});
     }
-    
-   
   }
 
-  public sendEmail(map:Map<String,Object>){
-    return this.http.post("http://localhost:8080/api/email",map, {responseType:'text' as 'json'})
+  public sendEmail(map:any, urlType:boolean){
+    if(urlType){
+      return this.http.post(this.baseAwsUrl+"api/email",map, {responseType:'text' as 'json'});
+    }else {
+      return this.http.post(this.baseUrl+"api/email",map, {responseType:'text' as 'json'});
+    }
   }
 }

@@ -12,6 +12,10 @@ export class RegistrationComponent implements OnInit {
   user:User= new User("","","","");
   public message:any;
   urlType: boolean = false;
+  showMsg: boolean = false;
+  public to :any;
+  public subject :any;
+  public body :any;
 
 
 
@@ -23,11 +27,18 @@ export class RegistrationComponent implements OnInit {
   public registerNow(urlType: boolean){
     let resp = this.service.doRegistration(this.user, urlType);
     resp.subscribe((data)=>this.message=data);
+    this.showMsg= true;
     // return this.service.doRegistration(this.user);
   }
 
-  public sendEmail(){
-    let resp = this.service.sendEmail(new Map);
+  public sendEmail(urlType:boolean){
+    const demo = {
+      to: this.to,
+      subject: this.subject,
+      body: this.body,
+      template:true
+    }
+    let resp = this.service.sendEmail(demo,this.urlType);
     resp.subscribe((data)=>this.message=data);
   }
 }

@@ -1,9 +1,7 @@
-.bodyBg{
+body{
 	margin: 0;
 	padding: 0;
-	/* background: 'url(assets/images/rajesh.jpg)'; */
-    background-image: url("/assets/images/bg.jpg");
-    /* background-image: url('assets/images/rajesh.png'); */
+	background: url(assets/css_common/images/rajesh.png);
 	background-size: cover;
 	background-position: center;
 	font-family: sans-serif;
@@ -11,7 +9,7 @@
 
 .loginbox{
 	width: 320px;
-	height: 500px;
+	height: 420px;
 	background: #248826;
 	color: #fff;
 	top:50%;
@@ -49,27 +47,6 @@ h1{
 }
 
 .loginbox input[type="text"], input[type="text"], input[type="text"] {
-	border: none;
-	border-bottom: 1px solid #fff;
-	background: transparent;
-	outline: none;
-	height: 40px;
-	color: rgb(7, 7, 7);
-	font-size: 16px;
-}
-
-
-.loginbox input[type="password"], input[type="password"], input[type="password"] {
-	border: none;
-	border-bottom: 1px solid #fff;
-	background: transparent;
-	outline: none;
-	height: 40px;
-	color: #fff;
-	font-size: 16px;
-}
-
-.loginbox input[type="option"], input[type="option"], input[type="option"] {
 	border: none;
 	border-bottom: 1px solid #fff;
 	background: transparent;

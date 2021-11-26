@@ -1,65 +1,172 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<div style="text-align: center">
-    <h1>{{message}}</h1>
-</div>
+<!-- <html> -->
+<!-- <head><title>GUMMAGUTTA NARESH</title> -->
+<meta charset="utf-8">
+<meta name="author" content="GUMMAGUTTA NARESH">
+<!-- <link rel="Stylesheet" type="text/css" href="assets/css_common/style.css"> -->
+<script>
+    function checkempty() {
+        var errormessage = "";
+        if (document.getElementById('name').value == "") {
+            errormessage += "Enter Your Name \n";
+            document.getElementById('name').style.borderColor = "red";
+        }
+        if (document.getElementById('email').value == "") {
+            errormessage += "Enter Your EmailId \n";
+            document.getElementById('email').style.borderColor = "red";
+        }
+        if (document.getElementById('phone').value == "") {
+            errormessage += "Enter Your Phone Number \n";
+            document.getElementById('phone').style.borderColor = "red";
+        }
+        if (document.getElementById('password').value == "") {
+            errormessage += "Enter Your Password \n";
+            document.getElementById('password').style.borderColor = "red";
+        }
+        if (errormessage = "") {
+            alert(errormessage);
+            return false;
+        }
+    }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form>
-                <fieldset>
-                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
-                                required *</small></span></legend>
-
-                    <div class="form-group">
-                        <label for="Name"><span class="req">* </span> Name: <small>This will be your login user
-                                name</small> </label>
-                        <input required type="text" [(ngModel)]="user.name" name="name" id="name"
-                            class="form-control phone" maxlength="28" placeholder="Enter your fullname..." />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> Email: </label>
-                        <input class="form-control" type="text" [(ngModel)]="user.email" name="email" id="txt" required
-                            placeholder="Enter valid email address" />
-                        <div id="errFirst"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> Phone: </label>
-                        <input class="form-control" type="text" [(ngModel)]="user.phone" name="phone" id="txt" required
-                            placeholder="Enter phone" />
-                        <div id="errFirst"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> Password: </label>
-                        <input class="form-control" type="password" [(ngModel)]="user.password" name="password" id="txt" required
-                            placeholder="Enter valid password" />
-                        <div id="errFirst"></div>
-                    </div>
+</script>
 
 
-                    <strong class="ml-2">Server Type</strong>
-                        <select class="ml-1" name="urlType" [(ngModel)]="urlType">
-                            <option></option>
-                            <option value=false>Local Server</option>
-                            <option value=true>Aws Server</option>
-                            </select>
+<div class="bodyBg">
+    <div class="loginbox">
+        <img src="assets/images/logo2.png" class="logo">
 
-                    <div class="form-group">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow(urlType)">
-                    </div>
-                </fieldset>
-            </form><!-- ends register form -->
-            <!-- second for to fiter user-->
-        </div><!-- ends col-6 -->
-        <!--Comment added-->
+        <h1>Register Here</h1>
+        <!-- <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSct3A34asyAgSU7j3w0nClynyBGGWty4KwqZyiYbANBqfj8gg/formResponse" target="_self" method="POST" onsubmit= "return checkempty()"> -->
+        <div class="form-group">
+            <label for="Name"><span class="req">* </span> Name: <small>This will be your login user
+                    name</small> </label>
+            <input required type="text" [(ngModel)]="user.name" name="name" id="name" class="form-control phone"
+                maxlength="28" placeholder="Enter your fullname..." />
+        </div>
+
+        <div class="form-group">
+            <label for="firstname"><span class="req">* </span> Email: </label>
+            <input class="form-control" type="text" [(ngModel)]="user.email" name="email" id="txt" required
+                placeholder="Enter valid email address" />
+            <div id="errFirst"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname"><span class="req">* </span> Phone: </label>
+            <input class="form-control" type="text" [(ngModel)]="user.phone" name="phone" id="txt" required
+                placeholder="Enter phone" />
+            <div id="errFirst"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname"><span class="req">* </span> Password: </label>
+            <input class="form-control" type="password" [(ngModel)]="user.password" name="password" id="txt" required
+                placeholder="Enter valid password" />
+            <div id="errFirst"></div>
+        </div>
+
+
+        <strong class="ml-2">Server Type</strong>
+        <select class="ml-1" name="urlType" [(ngModel)]="urlType">
+            <option></option>
+            <option value=false>Local Server</option>
+            <option value=true>Aws Server</option>
+        </select>
+
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" name="submit_reg" value="Register"
+                (click)="registerNow(urlType)">
+
+            <div class="row" *ngIf="showMsg">
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <strong>Registration Success!</strong>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
 
     </div>
+    <!-- </head> -->
+
+    <!-- <script async src="https://drv.tw/inc/wd.js"></script> -->
 </div>
+<!-- </html> -->
 
+<table align="center">
+    <tbody>
+        <tr>
+            <td style="vertical-align:middle;" align="center"></td>
+        </tr>
+        <tr>
+            <td style="vertical-align:middle;" align="center"><img src="assets/images/logo2.png" height=100 width=100 />
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="padding: 10px; border: thin solid #DFDFDF; background-color: #F7F7F7">
+    <table align="center" width="350px">
+        <tbody>
+            <tr>
+                <td style="height:40px;  font-family: Arial, Helvetica, sans-serif; font-size: large; vertical-align: middle; text-align: center; color: #FFFFFF; padding-left: 5px; font-weight: bold;"
+                    colspan="2" bgcolor="#007700">
+                    Send an email </td>
+            </tr>
+        </tbody>
+    </table>
 
+    <table border="0" align="center">
+        <tbody>
+            <tr>
+                <!-- <td background="assets/images/Login_BG.png" align="center" height="200px" width="438px" valin="top"> -->
+                    <table style="padding-top:60px;padding-right:120px;" align="center" border="0" cellpadding="0" cellspacing="2">
+                        <tbody>
+                            <tr>
+                                <td style="font-family: century gothic, arial, verdana; font-size:20px; font-weight:bold;" align="right">
+                                <font color="orange"><label>To: </label></font></td>
+                                <td>
+                                    <input type="text" name="to" [(ngModel)]="to" id="to" required placeholder="Enter Email id" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: century gothic, arial, verdana; font-size:20px; font-weight:bold;" align="right">
+                                    <font color="orange"><label>Subject: </label></font></td>
+                                    <td>
+                                        <input type="text" name="subject" [(ngModel)]="subject" id="subject" required placeholder="Enter Subject" />
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: century gothic, arial, verdana; font-size:20px; font-weight:bold;" align="right">
+                                    <font color="orange"><label>Body: </label></font></td>
+                                    <td>
+                                        <input type="text" name="body" [(ngModel)]="body" id="body" required placeholder="Enter Body" />
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: century gothic, arial, verdana; font-size:20px; font-weight:bold;" align="right">
+                                    <font color="orange"><label>Server: </label></font></td>
+                                    <td>
+                                       <select class="ml-1" name="urlType" [(ngModel)]="urlType">
+                                           <option></option>
+                                           <option value="false">Local Server</option>
+                                           <option value="true">Aws Server</option>
+                                       </select>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" align="center">
+                                    <input class="btn btn-success" style="color:Black;background-color:#007700;height:35px;width:70px;" type="submit" name="submit_reg" value="Send" (click)="sendEmail(urlType)"/>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                <!-- </td> -->
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
